@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosmic Vision Astrology</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1b1f3b, #070818);
+      color: #ffffff;
+      padding-top: 80px;
+      /* Add class to body when menu is active to disable scroll */
+      transition: all 0.3s ease;
+    }
+
+    /* New style for when menu is open */
+    body.no-scroll {
+        overflow: hidden;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(7, 8, 24, 0.95);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f5d27a;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 26px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #f5d27a;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #f5d27a;
+      transition: all 0.3s ease;
+      position: relative; /* To control z-index */
+      z-index: 3001; /* Ensure it's above the menu for closing */
+      padding: 5px; /* Increase click area */
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      max-width: 1200px;
+      margin: 40px auto; /* Added margin-top/bottom for separation */
+      padding: 60px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #f5d27a;
+    }
+
+    .content p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #e6e6e6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f5d27a, #d4a84f);
+      color: #1b1f3b;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(245, 210, 122, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #f5d27a;
+      border: 1px solid rgba(245, 210, 122, 0.6);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(245, 210, 122, 0.1);
+    }
+
+    .visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .zodiac-circle {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 2px dashed rgba(245, 210, 122, 0.5);
+      position: relative;
+      animation: rotate 40s linear infinite;
+    }
+
+    .zodiac-circle::before {
+      content: "✦";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: #f5d27a;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* New: Full-screen overlay for mobile menu */
+    .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+        backdrop-filter: blur(2px);
+        z-index: 2500; /* Between navbar and menu */
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        pointer-events: none; /* Allows clicks through when not visible */
+    }
+
+    .mobile-overlay.active {
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 30px;
+        margin: 20px; /* Adjusted margin for smaller screens */
+      }
+
+      .cta-buttons {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        /* Using the same dark background as the body for smooth transition */
+        background: #070818; 
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        flex-direction: column;
+        width: 280px; /* Slightly wider menu for content */
+        max-width: 80vw;
+        padding: 100px 30px 20px; /* Increased top padding */
+        transform: translateX(100%);
+        z-index: 3000;
+        transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1); /* Smoother animation */
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .nav-links li {
+        margin-bottom: 25px;
+      }
+
+      .nav-links li a {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: #f5d27a; /* Highlight links in the menu */
+          border-bottom: 1px solid rgba(245, 210, 122, 0.2);
+          padding-bottom: 5px;
+          display: block;
+      }
+
+      /* Changing the icon when menu is active */
+      .menu-toggle.active::before {
+        content: "✕"; /* 'X' icon */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .content h1 {
+        font-size: 2.2rem;
+      }
+
+      .content p {
+        font-size: 1rem;
+      }
+
+      .zodiac-circle {
+        width: 220px;
+        height: 220px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Cosmic Vision</div>
+
+      <div class="menu-toggle" id="menuToggle">☰</div> 
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html" >About Us</a></li>
+        <li><a href="./services.html">Services</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <section class="hero">
+    <div class="content">
+      <h1>Unlock Your Destiny Through Astrology</h1>
+      <p>
+        Discover the hidden patterns of your life using Vedic astrology,
+        numerology, and planetary science. Get accurate predictions,
+        personalized remedies, and deep spiritual insights crafted just for you.
+      </p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary">Get Your Horoscope</button>
+        <button class="btn btn-secondary">Book Consultation</button>
+      </div>
+    </div>
+
+    <div class="visual">
+      <div class="zodiac-circle"></div>
+    </div>
+  </section>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const mobileOverlay = document.getElementById("mobileOverlay");
+    const body = document.body;
+
+    function toggleMenu() {
+        navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+        //mobileOverlay.classList.toggle("active");
+        body.classList.toggle("no-scroll"); // Toggle body scroll lock
+    }
+
+    menuToggle.addEventListener("click", toggleMenu);
+    mobileOverlay.addEventListener("click", toggleMenu); // Close menu when clicking overlay
+
+    // Close menu when link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        // Only close if the menu is actually active
+        if (navLinks.classList.contains('active')) {
+            toggleMenu();
+        }
+      });
+    });
+
+    // Close menu on resize for desktop/tablet switch
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+  </script>
+
+</body>
+</html>
