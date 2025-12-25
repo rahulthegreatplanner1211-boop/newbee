@@ -285,14 +285,14 @@
         <h2>Divine Path Guidance</h2>
         <div class="price">₹2000</div>
         <p>1-hour detailed consultation with remedies.</p>
-        <button class="btn" id="horoscopeBtn">Book 1 Hour Session</button>
+        <button class="btn" id="horoscopeBtnn">Book 1 Hour Session</button>
       </div>
 
       <div class="service-card">
         <h2>Lifetime Destiny Premium Report</h2>
         <div class="price">₹5000</div>
         <p>100-year detailed horoscope report.</p>
-        <button class="btn" id="horoscopeBtn">Get Premium Report</button>
+        <button class="btn" id="horoscopeBtnnn">Get Premium Report</button>
       </div>
     </div>
   </section>
@@ -300,6 +300,36 @@
   <script>
 
     document.getElementById("horoscopeBtn").addEventListener("click", function (e) {
+      e.preventDefault();
+
+      window.location.href =
+        "mailto:astrologer21256@gmail.com" +
+        "?subject=Horoscope%20Request" +
+        "&body=Hello%20Cosmic%20Vision,%0D%0A%0D%0A" +
+        "I%20would%20like%20to%20get%20my%20horoscope.%0D%0A%0D%0A" +
+        "Name:%0D%0A" +
+        "Date%20of%20Birth:%0D%0A" +
+        "Time%20of%20Birth:%0D%0A" +
+        "Place%20of%20Birth:%0D%0A%0D%0A" +
+        "Thank%20you.";
+    });
+
+    document.getElementById("horoscopeBtnn").addEventListener("click", function (e) {
+      e.preventDefault();
+
+      window.location.href =
+        "mailto:astrologer21256@gmail.com" +
+        "?subject=Horoscope%20Request" +
+        "&body=Hello%20Cosmic%20Vision,%0D%0A%0D%0A" +
+        "I%20would%20like%20to%20get%20my%20horoscope.%0D%0A%0D%0A" +
+        "Name:%0D%0A" +
+        "Date%20of%20Birth:%0D%0A" +
+        "Time%20of%20Birth:%0D%0A" +
+        "Place%20of%20Birth:%0D%0A%0D%0A" +
+        "Thank%20you.";
+    });
+
+    document.getElementById("horoscopeBtnnn").addEventListener("click", function (e) {
       e.preventDefault();
 
       window.location.href =
@@ -331,3 +361,5 @@
 </body>
 
 </html>
+</html>
+
