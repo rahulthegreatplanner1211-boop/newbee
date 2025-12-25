@@ -1,298 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Astrology Services | Cosmic Vision</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astrology Services | Cosmic Vision</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet">
 
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #1b1f3b, #070818);
-  color: #ffffff;
-  padding-top: 80px;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1b1f3b, #070818);
+      color: #ffffff;
+      padding-top: 80px;
+    }
 
-/* ================= NAVBAR ================= */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 72px;
-  background: rgba(7, 8, 24, 0.95);
-  backdrop-filter: blur(12px);
-  z-index: 3000;
-}
+    /* ================= NAVBAR ================= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 72px;
+      background: rgba(7, 8, 24, 0.95);
+      backdrop-filter: blur(12px);
+      z-index: 3000;
+    }
 
-.nav-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #f5d27a;
-}
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f5d27a;
+    }
 
-/* Desktop links */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 26px;
-}
+    /* Desktop links */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 26px;
+    }
 
-.nav-links a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 0.95rem;
-}
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
 
-.nav-links a:hover { color: #f5d27a; }
+    .nav-links a:hover {
+      color: #f5d27a;
+    }
 
-/* Hamburger */
-.menu-btn {
-  display: none;
-  font-size: 1.8rem;
-  color: #f5d27a;
-  cursor: pointer;
-}
+    /* Hamburger */
+    .menu-btn {
+      display: none;
+      font-size: 1.8rem;
+      color: #f5d27a;
+      cursor: pointer;
+    }
 
-/* ================= MOBILE MENU ================= */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 85%;
-  height: 100vh;
-  background: linear-gradient(180deg, #0b0f2a, #050617);
-  padding: 28px 24px;
-  transition: right 0.4s ease;
-  z-index: 4000;
-}
+    /* ================= MOBILE MENU ================= */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      height: 100vh;
+      background: linear-gradient(180deg, #0b0f2a, #050617);
+      padding: 28px 24px;
+      transition: right 0.4s ease;
+      z-index: 4000;
+    }
 
-.mobile-menu.active {
-  right: 0;
-}
+    .mobile-menu.active {
+      right: 0;
+    }
 
-.mobile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 60px;
-}
+    .mobile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 60px;
+    }
 
-.close-btn {
-  font-size: 2rem;
-  color: #f5d27a;
-  cursor: pointer;
-}
+    .close-btn {
+      font-size: 2rem;
+      color: #f5d27a;
+      cursor: pointer;
+    }
 
-.mobile-links {
-  list-style: none;
-}
+    .mobile-links {
+      list-style: none;
+    }
 
-.mobile-links li {
-  margin-bottom: 28px;
-}
+    .mobile-links li {
+      margin-bottom: 28px;
+    }
 
-.mobile-links a {
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: #f5d27a;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    .mobile-links a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #f5d27a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.mobile-links a::before {
-  content: "✦";
-  font-size: 1rem;
-}
+    .mobile-links a::before {
+      content: "✦";
+      font-size: 1rem;
+    }
 
-/* Overlay */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  z-index: 3500;
-}
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      z-index: 3500;
+    }
 
-.overlay.active {
-  display: block;
-}
+    .overlay.active {
+      display: block;
+    }
 
-/* ================= SERVICES ================= */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 60px 20px;
-}
+    /* ================= SERVICES ================= */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 50px;
-}
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
 
-.section-title h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  color: #f5d27a;
-  margin-bottom: 10px;
-}
+    .section-title h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #f5d27a;
+      margin-bottom: 10px;
+    }
 
-.section-title p {
-  color: #e6e6e6;
-  font-size: 1.1rem;
-}
+    .section-title p {
+      color: #e6e6e6;
+      font-size: 1.1rem;
+    }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
 
-.service-card {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(14px);
-  border-radius: 24px;
-  padding: 40px 30px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
+    .service-card {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 40px 30px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
 
-.service-card:hover {
-  transform: translateY(-6px);
-}
+    .service-card:hover {
+      transform: translateY(-6px);
+    }
 
-.service-card h2 {
-  font-family: 'Playfair Display', serif;
-  color: #f5d27a;
-  margin-bottom: 15px;
-  font-size: 1.8rem;
-}
+    .service-card h2 {
+      font-family: 'Playfair Display', serif;
+      color: #f5d27a;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
 
-.price {
-  font-size: 2.2rem;
-  font-weight: 600;
-  color: #f5d27a;
-  margin: 20px 0;
-}
+    .price {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #f5d27a;
+      margin: 20px 0;
+    }
 
-.service-card p {
-  font-size: 1rem;
-  color: #e6e6e6;
-  margin-bottom: 25px;
-}
+    .service-card p {
+      font-size: 1rem;
+      color: #e6e6e6;
+      margin-bottom: 25px;
+    }
 
-.btn {
-  padding: 14px 28px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
-  background: linear-gradient(135deg, #f5d27a, #d4a84f);
-  color: #1b1f3b;
-}
+    .btn {
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      background: linear-gradient(135deg, #f5d27a, #d4a84f);
+      color: #1b1f3b;
+    }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .menu-btn { display: block; }
-  .section-title h1 { font-size: 2.2rem; }
-}
-</style>
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .section-title h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="nav-container">
-    <div class="logo">Cosmic Vision</div>
-    <ul class="nav-links">
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="./about.html">About</a></li>
-      <li><a href="./services.html">Services</a></li>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Cosmic Vision</div>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./services.html">Services</a></li>
+      </ul>
+      <div class="menu-btn" onclick="openMenu()">☰</div>
+    </div>
+  </nav>
+
+  <!-- Overlay -->
+  <div class="overlay" onclick="closeMenu()"></div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-header">
+      <div class="logo">Cosmic Vision</div>
+      <div class="close-btn" onclick="closeMenu()">✕</div>
+    </div>
+
+    <ul class="mobile-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Services</a></li>
     </ul>
-    <div class="menu-btn" onclick="openMenu()">☰</div>
-  </div>
-</nav>
-
-<!-- Overlay -->
-<div class="overlay" onclick="closeMenu()"></div>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu">
-  <div class="mobile-header">
-    <div class="logo">Cosmic Vision</div>
-    <div class="close-btn" onclick="closeMenu()">✕</div>
   </div>
 
-  <ul class="mobile-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Services</a></li>
-  </ul>
-</div>
-
-<!-- Content -->
-<section class="container">
-  <div class="section-title">
-    <h1>Astrology Services</h1>
-    <p>Personalised guidance for clarity, confidence, and life direction</p>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card">
-      <h2>Cosmic Insight Session</h2>
-      <div class="price">₹1000</div>
-      <p>30-minute consultation covering key life questions.</p>
-      <button class="btn">Book 30 Min Session</button>
+  <!-- Content -->
+  <section class="container">
+    <div class="section-title">
+      <h1>Astrology Services</h1>
+      <p>Personalised guidance for clarity, confidence, and life direction</p>
     </div>
 
-    <div class="service-card">
-      <h2>Divine Path Guidance</h2>
-      <div class="price">₹2000</div>
-      <p>1-hour detailed consultation with remedies.</p>
-      <button class="btn">Book 1 Hour Session</button>
+    <div class="services-grid">
+      <div class="service-card">
+        <h2>Cosmic Insight Session</h2>
+        <div class="price">₹1000</div>
+        <p>30-minute consultation covering key life questions.</p>
+        <button class="btn" id="horoscopeBtn">Book 30 Min Session</button>
+      </div>
+
+      <div class="service-card">
+        <h2>Divine Path Guidance</h2>
+        <div class="price">₹2000</div>
+        <p>1-hour detailed consultation with remedies.</p>
+        <button class="btn" id="horoscopeBtn">Book 1 Hour Session</button>
+      </div>
+
+      <div class="service-card">
+        <h2>Lifetime Destiny Premium Report</h2>
+        <div class="price">₹5000</div>
+        <p>100-year detailed horoscope report.</p>
+        <button class="btn" id="horoscopeBtn">Get Premium Report</button>
+      </div>
     </div>
+  </section>
 
-    <div class="service-card">
-      <h2>Lifetime Destiny Premium Report</h2>
-      <div class="price">₹5000</div>
-      <p>100-year detailed horoscope report.</p>
-      <button class="btn">Get Premium Report</button>
-    </div>
-  </div>
-</section>
+  <script>
 
-<script>
-function openMenu() {
-  document.querySelector('.mobile-menu').classList.add('active');
-  document.querySelector('.overlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
+    document.getElementById("horoscopeBtn").addEventListener("click", function (e) {
+      e.preventDefault();
 
-function closeMenu() {
-  document.querySelector('.mobile-menu').classList.remove('active');
-  document.querySelector('.overlay').classList.remove('active');
-  document.body.style.overflow = '';
-}
-</script>
+      window.location.href =
+        "mailto:astrologer21256@gmail.com" +
+        "?subject=Horoscope%20Request" +
+        "&body=Hello%20Cosmic%20Vision,%0D%0A%0D%0A" +
+        "I%20would%20like%20to%20get%20my%20horoscope.%0D%0A%0D%0A" +
+        "Name:%0D%0A" +
+        "Date%20of%20Birth:%0D%0A" +
+        "Time%20of%20Birth:%0D%0A" +
+        "Place%20of%20Birth:%0D%0A%0D%0A" +
+        "Thank%20you.";
+    });
+
+
+    function openMenu() {
+      document.querySelector('.mobile-menu').classList.add('active');
+      document.querySelector('.overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      document.querySelector('.mobile-menu').classList.remove('active');
+      document.querySelector('.overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  </script>
 
 </body>
+
 </html>
